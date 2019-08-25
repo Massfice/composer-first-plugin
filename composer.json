@@ -1,0 +1,21 @@
+{
+    "name": "massfice/composer-first-plugin",
+    "type": "composer-plugin",
+    "require": {
+        "composer-plugin-api": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "Massfice",
+            "email": "adrian.marian.tomasz.larysz@gmail.com"
+        }
+    ],
+
+    "extra": {
+        "class": "Massfice\\FirstPlugin\\FirstPlugin"
+    },
+
+    "autoload": {
+      "psr-4": {"Massfice\\FirstPlugin\\": "src/"}
+    }
+}
