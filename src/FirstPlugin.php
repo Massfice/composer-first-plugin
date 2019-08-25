@@ -16,7 +16,7 @@ class FirstPlugin implements PluginInterface, EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array('post-package-install' => 'createDir');
+        return array('post-package-update' => 'createDir');
     }
 
     public function createDir() {
