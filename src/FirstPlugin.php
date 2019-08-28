@@ -16,9 +16,9 @@ class FirstPlugin implements PluginInterface, EventSubscriberInterface
     private $io;
     private $cio;
 
-    public function activate(Composer $composer, IOInterface $io, ConsoleIO $cio) {
+    public function activate(Composer $composer, IOInterface $io) {
       $this->io = $io;
-      $this->cio = $cio;
+      $this->cio = new ConsoleIO();
     }
 
     public static function getSubscribedEvents()
@@ -28,7 +28,7 @@ class FirstPlugin implements PluginInterface, EventSubscriberInterface
 
     public function createDir() {
       mkdir('test');
-      $this->io->writeError('Error');
-      $this->cio->error('Error');
+      $this->io->writeError('Error',true,self::VERY_VERBOSE);
+      $this->cio->error('Error2');
     }
 }
