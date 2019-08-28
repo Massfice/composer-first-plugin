@@ -12,7 +12,11 @@ use Composer\Plugin\PreFileDownloadEvent;
 class FirstPlugin implements PluginInterface, EventSubscriberInterface
 {
 
-    public function activate(Composer $composer, IOInterface $io) {}
+    private $io;
+
+    public function activate(Composer $composer, IOInterface $io) {
+      $this->io = $io;
+    }
 
     public static function getSubscribedEvents()
     {
@@ -21,5 +25,6 @@ class FirstPlugin implements PluginInterface, EventSubscriberInterface
 
     public function createDir() {
       mkdir('test');
+      $this->io->writeError('Error');
     }
 }
